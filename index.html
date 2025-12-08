@@ -105,7 +105,8 @@
         }
 
         /* --- UPDATED INPUT STYLING --- */
-        input[type="date"], input[type="text"], select {
+        /* Added textarea to this list so it gets the same style */
+        input[type="date"], input[type="text"], select, textarea {
             width: 100%;
             padding: 16px;
             background-color: var(--input-bg);
@@ -119,6 +120,13 @@
             appearance: none;
             -webkit-appearance: none;
             box-sizing: border-box;
+        }
+
+        /* Specific styles for the Description Text Area */
+        textarea {
+            min-height: 100px; /* Taller default height */
+            resize: vertical;  /* Allow manual resizing */
+            line-height: 1.5;
         }
 
         select {
@@ -142,7 +150,7 @@
             padding: 15px 0;
         }
 
-        input::placeholder {
+        input::placeholder, textarea::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
 
@@ -379,8 +387,9 @@
                     </select>
                 </div>
 
+                <!-- UPDATED: Textarea for Description -->
                 <div id="field-desc" class="dynamic-field" style="display:block">
-                    <input type="text" id="act-desc" placeholder="Description / Notes...">
+                    <textarea id="act-desc" placeholder="Description / Notes..."></textarea>
                 </div>
 
                 <button id="add-btn" class="btn btn-add" onclick="handleActivityAction()">+ Add Entry</button>
